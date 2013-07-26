@@ -1,5 +1,5 @@
-pico_get_files
-==============
+pico_get_by_filename
+====================
 
 A Pico CMS plugin to grab content by the filename. You can call pages by their filename instead of looping through each and then using an if.
 
