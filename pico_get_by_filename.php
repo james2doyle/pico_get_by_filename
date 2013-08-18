@@ -22,17 +22,13 @@ class Pico_Get_By_Filename {
   }
 
   public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page) {
-    foreach ($pages as $key => $value) {
-      $new_key = $this->_make_filename($pages[$key]['url']);
-      // not 0 because that is the homepage
-      if ($key != 0) {
-        unset($pages[$key]);
-        // replace the old int key with the filename key
-        $pages[$new_key] = $value;
-        // store the filename so we can use it in templates
-        $pages[$new_key]['filename'] = $new_key;
-      }
+    $temp = array();
+    foreach ($pages as $page) {
+      $filename = $this->_make_filename($page['url']);
+      $page['filename'] = $filename;
+      $temp[$filename] = $page;
     }
+    $pages = $temp;
   }
 
 }
