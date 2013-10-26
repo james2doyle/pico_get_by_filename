@@ -28,6 +28,8 @@ class Pico_Get_By_Filename {
       $page['filename'] = $filename;
       $temp[$filename] = $page;
     }
+    $filename = $this->_make_filename($current_page['url']);
+    $current_page['filename'] = $filename;
     $pages = $temp;
   }
 
