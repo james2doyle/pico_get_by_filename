@@ -16,7 +16,8 @@ class Pico_Get_By_Filename {
     $filename = str_replace('/', '', $filename);
     // need to find a way around files with the same name
     if (strlen($filename) <= 1) {
-      $filename .= 'index';
+        $filename = substr($url, (strrpos($url, '/', -2)));
+        $filename = str_replace('/', '', $filename);
     }
     return $filename;
   }
